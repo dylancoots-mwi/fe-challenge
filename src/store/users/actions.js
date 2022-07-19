@@ -5,7 +5,7 @@ export const getUsersAsync = (search, page = 1) => (dispatch) =>
   fetchUsers(search, page).then((response) => dispatch({
     type: SET_USERS,
     payload: response?.data
-}))
+})).catch(() => alert('API rate limit exceeded'))
 
 export const setSearchValue = search => ({
     type: SET_SEARCH_VALUE,
